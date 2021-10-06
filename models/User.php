@@ -4,9 +4,10 @@ class User
 {
     protected $name;
     protected $lastName;
-    protected $username;
+    public $username;
     protected $email;
     protected $phone;
+    protected $card;
 
     public function __construct($name, $lastName, $username, $email, $phone)
     {
@@ -15,6 +16,17 @@ class User
         $this->username = $username;
         $this->email = $email;
         $this->phone = $phone;
+    }
+
+    // SET CARD 
+
+    public function setCard($card)
+    {
+        if (!is_numeric($card)) {
+            throw new Exception('Devi inserire delle cifre');
+        } else {
+            return $this->card = $card;
+        }
     }
 }
 
